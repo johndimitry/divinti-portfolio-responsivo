@@ -1,0 +1,45 @@
+// Variáveis para espaçamento e tamanho de fonte
+@spacing: 14px 28px;
+@font-size: 16px;
+@brand-red: #e60023;
+@brand-white: #ffffff;
+@brand-black: #0d0d0d;
+
+// Classe base do botão
+.button {
+  padding: @spacing;
+  font-size: @font-size;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  // Função LESS para calcular opacidade
+  background-color: fade(@brand-red, 80%);
+
+  &:hover {
+    background-color: fade(@brand-red, 100%);
+    transform: translateY(-2px);
+  }
+}
+
+// Herança para o botão principal
+.primary-button {
+  .button();
+  color: @brand-white;
+  box-shadow: 0 4px 15px fade(@brand-red, 40%);
+}
+
+// Herança para um botão secundário (variação extra)
+.secondary-button {
+  .button();
+  background-color: transparent;
+  color: @brand-white;
+  border: 2px solid @brand-white;
+  margin-left: 12px;
+
+  &:hover {
+    background-color: @brand-white;
+    color: @brand-black;
+  }
+}

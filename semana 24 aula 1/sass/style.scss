@@ -1,0 +1,83 @@
+@use 'sass:color';
+
+// Variáveis da marca DiVinti
+$primary-color: #0d0d0d;    // Preto intenso
+$secondary-color: #e60023;  // Vermelho vibrante
+$text-light: #ffffff;       // Branco puro
+
+// Mixin para bordas arredondadas
+@mixin rounded($radius: 8px) {
+  border-radius: $radius;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: $primary-color;
+  color: $text-light;
+}
+
+// Aninhamento para o menu de navegação
+nav {
+  background-color: color.adjust($primary-color, $lightness: 5%);
+  border-bottom: 2px solid $secondary-color;
+  padding: 16px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: $text-light;
+    letter-spacing: 2px;
+
+    span {
+      color: $secondary-color;
+    }
+  }
+
+  ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+
+    li {
+      color: $text-light;
+      padding: 8px 16px;
+      cursor: pointer;
+      transition: 0.3s;
+      @include rounded(6px); // Uso do mixin
+
+      &:hover {
+        background-color: $secondary-color;
+        color: $text-light;
+      }
+    }
+  }
+}
+
+.hero {
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 40px;
+  background-color: #161616;
+  border-left: 4px solid $secondary-color;
+  @include rounded(12px);
+
+  h1 {
+    font-size: 36px;
+    margin-bottom: 16px;
+  }
+
+  p {
+    color: #cccccc;
+    margin-bottom: 24px;
+    line-height: 1.6;
+  }
+}
